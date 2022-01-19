@@ -17,6 +17,9 @@ public class DepartmentDAO {
 		dbConnector = new DBConnector();
 	}
 	
+		
+	
+	
 	public List<DepartmentDTO> getList() throws Exception {
 		ArrayList<DepartmentDTO> ar = new ArrayList<>();
 		
@@ -62,5 +65,5 @@ public class DepartmentDAO {
 		return ar;
 	}
 	
-
+	
 }
