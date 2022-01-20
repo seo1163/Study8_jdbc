@@ -17,9 +17,46 @@ public class DepartmentDAO {
 		dbConnector = new DBConnector();
 	}
 	
+	
+	//부서번호로 조회
+	public DepartmentDTO	getOne(DepartmentDTO dep) throws Exception {
+		DepartmentDTO departmentDTO = null;
 		
+		//1.DB에 로그인
+		Connection con = dbConnector.getConnect();
+		
+		//2.Query문 작성
+		String sql = "SELECT* FROM DEPARTMENTS WHERE DEPARTMENT_ID = ? ";
+		//3.Querry문 미리 전송
+		PreparedStatement st = con.prepareStatement(sql);
+		
+		//4. ? 값을 세팅
+		//st.set 데이터타입(int index, 값);
+		// index 는 ?의 순서번호
+		//그러나 oracle은 1번 부터 시작
+		st.setInt(1,dep.getDepartment_id());
+		
+		//5. 최종 전송 후 결과 처리
+		ResultSet rs = st.executeQuery();
+		//1 row가 있거나 없거나
+		if(rs.next()) {
+			//데이터가 있을 때
+			departmentDTO = new DepartmentDTO();
+			departmentDTO.setDepartment_id(rs.getInt("department_id"));
+			departmentDTO.setDepartment_name(rs.getString("department_name"));
+			departmentDTO.setManager_id(rs.getInt("manager_id"));
+			departmentDTO.setLocation_id(rs.getInt("Location_id"));
+			
+		}
+		//6. 자원 해제
+		rs.close();
+		st.close();
+		con.close();
+		
+		return departmentDTO;
+	}
 	
-	
+	// 전체조회
 	public List<DepartmentDTO> getList() throws Exception {
 		ArrayList<DepartmentDTO> ar = new ArrayList<>();
 		
@@ -38,6 +75,7 @@ public class DepartmentDAO {
 		
 		//5. 최종 전송 후 결과 처리
 		ResultSet rs = st.executeQuery();
+		
 		
 		
 		//cursor가 한줄 읽는 메서드 next() 리턴은 데이터가 있으면 true, 없으면 false
