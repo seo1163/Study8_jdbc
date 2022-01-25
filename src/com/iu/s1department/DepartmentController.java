@@ -16,11 +16,9 @@ public class DepartmentController {
 		departmentDAO = new DepartmentDAO();
 		departmentView = new DepartmentView();
 		sc = new Scanner(System.in);
-		DepartmentDAO departmentDAO = new DepartmentDAO();
-		DepartmentView departmentView = new DepartmentView();
-		
-	}
+			
 	
+	}
 	
 	public void start() throws Exception{
 		

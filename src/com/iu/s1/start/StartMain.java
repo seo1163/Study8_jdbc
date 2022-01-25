@@ -16,23 +16,33 @@ public class StartMain {
 	public static void main(String[] args) {
 		System.out.println("DB 연동 테스트 시작");
 		
-		DepartmentDAO departmentDAO = new DepartmentDAO();
-//		DepartmentView departmentView = new DepartmentView();
-	
+		FrontController frontController = new FrontController();
+		
 		try {
-			DepartmentDTO departmentDTO = new DepartmentDTO();
-			departmentDTO.setDepartment_id(20);
-			departmentDTO = departmentDAO.getOne(departmentDTO);
-			//DepartmentDTO departmentDTO = departmentDAO.getOne(20);
-			System.out.println(departmentDTO.getDepartment_name());
-			DepartmentController dc =new DepartmentController();
-			dc.start();
-//			List<DepartmentDTO> ar= departmentDAO.getList();
-//			departmentView.view(ar);
+			frontController.mainStart();
+			
 		} catch (Exception e) {
 			e.printStackTrace();
-			
 		}
+		
+		
+//		//DepartmentDAO departmentDAO = new DepartmentDAO();
+//		DepartmentView departmentView = new DepartmentView();
+	
+//		//try {
+//		//	DepartmentDTO departmentDTO = new DepartmentDTO();
+//		//	departmentDTO.setDepartment_id(20);
+//		//	departmentDTO = departmentDAO.getOne(departmentDTO);
+			//DepartmentDTO departmentDTO = departmentDAO.getOne(20);
+//			//System.out.println(departmentDTO.getDepartment_name());
+//			//DepartmentController dc =new DepartmentController();
+//			//dc.start();
+//			List<DepartmentDTO> ar= departmentDAO.getList();
+//			departmentView.view(ar);
+//		//} catch (Exception e) {
+//			//e.printStackTrace();
+//			
+//		//}
 //		LocationDAO locationDAO = new LocationDAO();
 //		LocationView locationView = new LocationView();
 //		
