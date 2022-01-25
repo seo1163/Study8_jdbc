@@ -18,26 +18,22 @@ public class DepartmentDAO {
 	}
 	
 	//부서정보, 부서에 근무하는 사원들의 정보
-	public void getDEP_EMPList() {
-		
+	public void getDEP_EMPList() throws Exception{
 		Connection con = dbConnector.getConnect();
 		
-		String sql="SELECT D.*,E.*"
-				+ "FROM DEPARTMENTS D"
-				+ "    INNER JOIN"
-				+ "    EMPLOYEES E" 
-				+ " ON (D.DEPARTMENT_ID = E.DEPARTMENT_ID)";
+		String sql= "SELECT D.*,E.*"
+					+ "FROM DEPARTMETS D"
+					+ "     INNER JOIN"
+					+ "     EMPLOYEES E"
+					+ "     ON (D.DEPARTMETN_ID = E.DEPARTMENT_ID)";
 		
 		PreparedStatement st = con.prepareStatement(sql);
 		
-		ResultSet rs =st.executeQuery();
+		ResultSet rs = st.executeQuery();
 		
 		while(rs.next()) {
 			
-			
 		}
-				
-				
 		
 	}
 	

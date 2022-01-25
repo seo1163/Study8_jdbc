@@ -5,6 +5,8 @@ import java.util.List;
 import com.iu.s1.location.LocationDAO;
 import com.iu.s1.location.LocationDTO;
 import com.iu.s1.location.LocationView;
+import com.iu.s1.region.RegionDAO;
+import com.iu.s1.region.RegionDTO;
 import com.iu.s1.utill.DBConnector;
 import com.iu.s1department.DepartmentController;
 import com.iu.s1department.DepartmentDAO;
